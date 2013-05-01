@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ReportFields>
+  <ReportItem Name="DigitalLoopCarrier" Fields="*"/>
+  <ReportItem Name="DigitalCrossConnect" Fields="*"/>
+  <ReportItem Name="FiberInterconnect" Fields="*"/>
+  <ReportItem Name="Multiplexer" Fields="*"/>
+  <ReportItem Name="OpticalRepeater" Fields="*"/>
+  <ReportItem Name="PatchPanel" Fields="IPID,MANUFACTURER,COMMENTS,INPUTPORTS,OUTPUTPORTS,MOUNTTYPE"/>
+  <ReportItem Name="PatchPanelPort" Fields="IPID,COMMENTS,PORTLABEL,PORTTYPE,FIBERNUMBER"/>
+  <ReportItem Name="Splitter" Fields="*"/>
+  <ReportItem Name="FiberCable" Fields="IPID,SHEATHTYPE,NUMBEROFBUFFERS,NUMBEROFFIBERS,CORETYPE,SUBTYPECODE"/>
+  <ReportItem Name="SpliceClosure" Fields="IPID,DATEMODIFIED,PLACEMENTTYPE,INSTALLATIONDATE"/>
+  <ReportItem Name="FIBERSPLICE" Fields="IPID,SPLICEDATE,COMMENTS,LOSS,TYPE"/>
+  <ReportItem Name="Fiber" Fields="IPID,FIBERNUMBER,FIBERCOLOR,FIBERMODE,FIBERSTATUS"/>
+</ReportFields>

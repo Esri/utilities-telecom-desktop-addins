@@ -1,0 +1,69 @@
+﻿<ESRI.Configuration xmlns="http://schemas.esri.com/Desktop/AddIns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>Esri Telecom Fiber Tools</Name>
+  <AddInID>{211a5081-0d30-4ce1-bebd-4fa3c7a69ae1}</AddInID>
+  <Description>Esri Telecom Fiber Tools</Description>
+  <Version>10.2</Version>
+  <Image>Images\Esri Telecom Tools.png</Image>
+  <Author>Esri., Inc.</Author>
+  <Company>Esri., Inc.</Company>
+  <Date>5/1/2013</Date>
+  <Targets>
+    <Target name="Desktop" version="10.2"/>
+  </Targets>
+  <AddIn language="CLR4.0" library="esriTelcoTools.dll" namespace="Esri_Telecom_Tools.Extension">
+    <ArcMap>
+      <Commands>
+        <Button onDemand="false" id="esriTelcoTools_OpenWorkspaceCommand" class="Esri_Telecom_Tools.Commands.OpenWorkspaceCommand" message="Select a telecom workspace to edit." caption="Open Workspace" tip="Open Workspace" category="Add-In Controls" image="Images\Folder.png" />
+        <Button onDemand="false" id="esriTelcoTools_FiberSpliceCommand" class="Esri_Telecom_Tools.Commands.FiberSpliceCommand" message="View or edit the splicing information for one or more selected splice closures." caption="View Or Edit A Fiber Splice" tip="View Or Edit A Fiber Splice" category="Add-In Controls" image="Images\FiberSpliceConnectionCommand.png" />
+        <Button onDemand="false" id="esriTelcoTools_FiberTraceCommand" class="Esri_Telecom_Tools.Commands.FiberTraceCommand" message="Run a network trace on a selected cable and strand." caption="Fiber Network Trace" tip="Run A Fiber Network Trace" category="Add-In Controls" image="Images\FiberTraceCommand.png" />
+        <Button onDemand="false" id="esriTelcoTools_FiberDeviceConnectionCommand" class="Esri_Telecom_Tools.Commands.FiberDeviceConnectionCommand" message="View or edit the splicing information between selected devices and cables." caption="View Or Edit Fiber Device Connections" tip="View Or Edit Fiber Device Connections" category="Add-In Controls" image="Images\FiberDeviceConnectionCommand.png" />
+        <Button onDemand="false" id="esriTelcoTools_TelecomToolsLogCommand" class="Esri_Telecom_Tools.Commands.TelecomToolsLogCommand" message="Telecom Tools Log" caption="Telecom Tools Log" tip="Telecom Tools Log" category="Add-In Controls" image="Images\LogCommand.png" />
+        <Button onDemand="false" id="esriTelcoTools_CloseWorkspaceCommand" class="Esri_Telecom_Tools.Commands.CloseWorkspaceCommand" message="Closes the current telecom workspace and stops any editing session." caption="Close Workspace" tip="Close workspace" category="Add-In Controls" image="Images\CloseWorkspaceCommand.png" />
+      </Commands>
+      <Toolbars>
+        <Toolbar id="esriTelcoTools_Fiber_Toolbar" caption="Esri Fiber Editing" showInitially="true">
+          <Items>
+            <Tool refID="esriTelcoTools_OpenWorkspaceCommand" />
+            <Tool refID="esriTelcoTools_CloseWorkspaceCommand" />
+            <Tool refID="esriEditor.StartEditingCommand" />
+            <Tool refID="esriEditor.StopEditingCommand" />
+            <Tool refID="esriEditor.PropertiesCommand" />
+            <Tool refID="esriEditor.AttributionCommand" />
+            <Tool refID="esriTelcoTools_FiberSpliceCommand" />
+            <Tool refID="esriTelcoTools_FiberTraceCommand" />
+            <Tool refID="esriTelcoTools_FiberDeviceConnectionCommand" />
+            <Tool refID="esriTelcoTools_TelecomToolsLogCommand" />
+          </Items>
+        </Toolbar>
+      </Toolbars>
+      <Extensions>
+        <Extension autoLoad="true" id="esriTelcoTools_FiberExtension" class="Esri_Telecom_Tools.Extension.FiberEditorExtension" productName="Esri Fiber Editing Extension" showInExtensionDialog="false">
+          <Description>Esri Fiber Editing Extension</Description>
+        </Extension>
+      </Extensions>
+      <DockableWindows>
+        <DockableWindow id="esriTelcoTools_FiberSpliceWindow" class="Esri_Telecom_Tools.Windows.FiberSpliceWindow+AddinImpl" caption="View Or Edit A Fiber Splice" image="Images\FiberSpliceConnectionWindow.png">
+          <InitialPlacement height="300" width="500" state="hidden" position="left" />
+        </DockableWindow>
+        <DockableWindow id="esriTelcoTools_FiberTraceWindow" class="Esri_Telecom_Tools.Windows.FiberTraceWindow+AddinImpl" caption="Fiber Trace" image="Images\FiberTraceWindow.png">
+          <InitialPlacement height="145" width="444" state="hidden" position="left" />
+        </DockableWindow>
+        <DockableWindow id="esriTelcoTools_FiberTraceReportWindow" class="Esri_Telecom_Tools.Windows.FiberTraceReportWindow+AddinImpl" caption="Trace Report" image="Images\FiberTraceReportWindow.png">
+          <InitialPlacement height="500" width="300" state="hidden" position="left" />
+        </DockableWindow>
+        <DockableWindow id="esriTelcoTools_FiberDeviceConnectionWindow" class="Esri_Telecom_Tools.Windows.FiberDeviceConnectionWindow+AddinImpl" caption="Fiber Connection Editor" image="Images\FiberDeviceConnectionWindow.png">
+          <InitialPlacement height="300" width="300" state="hidden" position="left" />
+        </DockableWindow>
+        <DockableWindow id="esriTelcoTools_TelecomToolsLogWindow" class="Esri_Telecom_Tools.Windows.TelecomToolsLogWindow+AddinImpl" caption="Telecom Tools Log" image="Images\TelecomToolsLogWindow.png">
+          <InitialPlacement height="300" width="300" state="hidden" position="left" />
+        </DockableWindow>
+        <DockableWindow id="esriTelcoTools_OpenWorkspaceWindow" class="Esri_Telecom_Tools.Windows.OpenWorkspaceWindow+AddinImpl" caption="Telecom Workspace Selection" image="Images\OpenWorkspaceWindow.png">
+          <InitialPlacement height="300" width="300" state="pinned" position="left" />
+        </DockableWindow>
+      </DockableWindows>
+      <Editor>
+        <Commands></Commands>
+      </Editor>
+    </ArcMap>
+  </AddIn>
+</ESRI.Configuration>

@@ -1,0 +1,355 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{14A9B35C-054C-4392-A95A-F75B249E448F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Esri_Telecom_Tools</RootNamespace>
+    <AssemblyName>esriTelcoTools</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RegisterForComInterop>false</RegisterForComInterop>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ESRI.ArcGIS.ADF.Connection.Local, Version=10.1.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.ArcMap, Version=10.1.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.ArcMapUI, Version=10.1.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Carto, Version=10.1.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.CartoUI, Version=10.1.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.CatalogUI, Version=10.1.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Controls, Version=10.1.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Desktop.AddIns">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Display, Version=10.1.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Framework">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Geodatabase, Version=10.1.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.GeoDatabaseUI, Version=10.1.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Schematic, Version=10.1.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.System">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commands\CloseWorkspaceCommand.cs" />
+    <Compile Include="Commands\OpenWorkspaceCommand.cs" />
+    <Compile Include="Commands\TelecomToolsLogCommand.cs" />
+    <Compile Include="Commands\FiberDeviceConnectionCommand.cs" />
+    <Compile Include="Events\TelecomLogEvent.cs" />
+    <Compile Include="Helpers\BaseWorkspaceHelper.cs" />
+    <Compile Include="Helpers\EditorBase.cs" />
+    <Compile Include="Helpers\TelecomWorkspaceHelper.cs" />
+    <Compile Include="Helpers\LogHelper.cs" />
+    <Compile Include="Helpers\FiberDeviceConnectionHelper.cs" />
+    <Compile Include="Core\Wrappers\NameValuePair.cs" />
+    <Compile Include="Windows\OpenWorkspaceWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Windows\OpenWorkspaceWindow.Designer.cs">
+      <DependentUpon>OpenWorkspaceWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\TelecomToolsLogWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Windows\TelecomToolsLogWindow.Designer.cs">
+      <DependentUpon>TelecomToolsLogWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\FiberDeviceConnectionWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Windows\FiberDeviceConnectionWindow.Designer.cs">
+      <DependentUpon>FiberDeviceConnectionWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Wrappers\FeatureWrapperEventArgs.cs" />
+    <Compile Include="Helpers\FiberTraceHelper.cs" />
+    <Compile Include="Windows\FiberTraceReportWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Windows\FiberTraceReportWindow.Designer.cs">
+      <DependentUpon>FiberTraceReportWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\FiberTraceWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Windows\FiberTraceWindow.Designer.cs">
+      <DependentUpon>FiberTraceWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commands\FiberTraceCommand.cs" />
+    <Compile Include="Windows\FiberSpliceWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Windows\FiberSpliceWindow.Designer.cs">
+      <DependentUpon>FiberSpliceWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Commands\FiberSpliceCommand.cs" />
+    <Compile Include="Config.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Config.esriaddinx</DependentUpon>
+    </Compile>
+    <Compile Include="Core\FiberCableConfiguration.cs" />
+    <Compile Include="Core\PortType.cs" />
+    <Compile Include="Core\Utils\SpliceConnectionUtils.cs" />
+    <Compile Include="Core\Wrappers\ConnectableDeviceWrapper.cs" />
+    <Compile Include="Core\Wrappers\DeviceWrapper.cs" />
+    <Compile Include="Helpers\FiberDeviceConfigHelper.cs" />
+    <Compile Include="Core\Connection.cs" />
+    <Compile Include="Core\FiberSplice.cs" />
+    <Compile Include="Core\Range.cs" />
+    <Compile Include="Core\Utils\ConfigUtil.cs" />
+    <Compile Include="Core\Wrappers\ConnectableCableWrapper.cs" />
+    <Compile Include="Core\Wrappers\FeatureWrapper.cs" />
+    <Compile Include="Core\Wrappers\FiberCableWrapper.cs" />
+    <Compile Include="Core\Utils\GdbUtils.cs" />
+    <Compile Include="Core\Wrappers\SpliceableCableWrapper.cs" />
+    <Compile Include="Core\Wrappers\SpliceClosureWrapper.cs" />
+    <Compile Include="Helpers\FiberCableConfigHelper.cs" />
+    <Compile Include="Helpers\HookHelperExt.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Helpers\FiberSpliceHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="Config.esriaddinx">
+      <Generator>ArcGISAddInHostGenerator</Generator>
+      <LastGenOutput>Config.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </AddInContent>
+  </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="Images\Esri Telecom Tools.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="ESRI.ArcGIS.Editor">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Framework">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Geometry">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.System">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.SystemUI">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="ESRI.ArcGIS.Editor">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Extension\FiberEditorExtension.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Windows\OpenWorkspaceWindow.resx">
+      <DependentUpon>OpenWorkspaceWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\FiberDeviceConnectionWindow.resx">
+      <DependentUpon>FiberDeviceConnectionWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\FiberSpliceWindow.resx">
+      <DependentUpon>FiberSpliceWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\FiberTraceReportWindow.resx">
+      <DependentUpon>FiberTraceReportWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\FiberTraceWindow.resx">
+      <DependentUpon>FiberTraceWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\TelecomToolsLogWindow.resx">
+      <DependentUpon>TelecomToolsLogWindow.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="Images\FiberDeviceConfigWindow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="Images\FiberCableConfigWindow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="Images\FiberSpliceConnectionWindow.png" />
+    <AddInContent Include="Images\FiberSpliceConnectionCommand.png" />
+    <AddInContent Include="Images\FiberTraceWindow.png" />
+    <AddInContent Include="Images\FiberTraceCommand.png" />
+    <AddInContent Include="Images\FiberTraceReportWindow.png" />
+    <AddInContent Include="Images\FiberDeviceConfiguration.png" />
+    <Content Include="FiberTraceReportFields.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <AddInContent Include="Images\FiberConnectionEditorWindow.png" />
+    <AddInContent Include="Images\FiberDeviceConnectionCommand.png" />
+    <AddInContent Include="Images\TelecomToolsLogWindow.png" />
+    <AddInContent Include="Images\TelecomToolsLogCommand.png" />
+    <AddInContent Include="Images\LogCommand.png" />
+    <AddInContent Include="Images\OpenWorkspaceCommand.png" />
+    <AddInContent Include="Images\OpenWorkspaceWindow.png" />
+    <AddInContent Include="Images\close-application.png" />
+    <AddInContent Include="Images\CloseWorkspaceCommand.png" />
+    <AddInContent Include="Images\Folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="MSXML2">
+      <Guid>{F5078F18-C551-11D3-89B9-0000F81FE221}</Guid>
+      <VersionMajor>6</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <ZipFileExtension>esriAddIn</ZipFileExtension>
+    <AddInTargetProduct>Desktop</AddInTargetProduct>
+    <AddInTargetVersion>10.1</AddInTargetVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>..\..\ArcGIS For Utilities\Telecom\Fiber Network Data Management\AddIn\</OutputPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\ESRI\ESRI.ArcGIS.AddIns.targets" Condition="Exists('$(MSBuildExtensionsPath)\ESRI\ESRI.ArcGIS.AddIns.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  -->
+  <Target Name="AfterBuild">
+    <!-- Gives build warning when add-in targets file is not found. -->
+    <Warning Text="Unable to create .esriAddin; missing ESRI ArcGIS Add-in SDK component(s)." Condition="!Exists('$(MSBuildExtensionsPath)\ESRI\ESRI.ArcGIS.AddIns.targets')" />
+  </Target>
+  <ProjectExtensions>
+    <!-- Default ESRI add-in properties -->
+    <ESRIAddInProperties>
+      <Host>ArcMap</Host>
+    </ESRIAddInProperties>
+  </ProjectExtensions>
+</Project>
