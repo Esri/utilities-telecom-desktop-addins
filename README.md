@@ -2,14 +2,14 @@
 
 The ArcGIS for Utilities Telecom Desktop Add-ins helps you effectively manage basic connectivity information about your fiber network infrastructure.
 
-![Image of Desktop Add-ins]
+![Image of Desktop Add-ins](https://raw.github.com/Esri/utilities-telecom-desktop-addins/master/utilities-telecom-desktop-addins.png "Desktop Add-ins")
+
 
 ## Features
 
-* Cable Splicing
-* …
-* …
-* …
+* Fiber Splicing
+* Fiber -> Device Splicing
+* Tracing the Fiber Network
 
 ## Instructions
 
@@ -19,16 +19,17 @@ Esri's sample data can be [downloaded] (http://www.arcgis.com/home/item.html?id=
 
 ### Your Services
 
-[Detailed help] 
+[Detailed help](http://resources.arcgis.com/en/help/localgovernment/10.1/index.html#/ArcGIS_for_Local_Government_maps_and_apps/028s0000006t000000/)
+on the ArcGIS Resource Center can guide you in the setup and configuration of the desktop add-ins with your data.
 
 ### General Help
 [New to Github? Get started here.](http://htmlpreview.github.com/?https://github.com/Esri/esri.github.com/blob/master/help/esri-getting-to-know-github.html)
 
 ## Requirements
 
-### ArcGIS 10.1 SDK
-### .Net 3.5
-### Visual Studio 2012
+### ArcGIS 10.2 SDK
+### .Net 4.0
+### Visual Studio 2010 or greater
 
 ## Resources
 
