@@ -35,8 +35,12 @@ on the ArcGIS Resource Center can guide you in the setup and configuration of th
 
 Learn more about Esri's [ArcGIS for Telecommunication]( http://resources.arcgis.com/en/communities/telecommunications/).
 
+Show me a list of other [Utilities GitHub repositories](http://esri.github.io/#Utilities).
+
+
 Additional [information and sample data]( http://www.arcgis.com/home/item.html?id=1835f8dbd35247369d4281d8914c48ca)
 are available for the destkop add-ins.
+
 
 ## Issues
 
@@ -65,5 +69,5 @@ limitations under the License.
 A copy of the license is available in the repository's
 [license.txt](https://raw.github.com/Esri/local-government-desktop-addins/master/license.txt) file.
 
-[](Esri Tags: Utilities Fiber-Network-Data-Management Desktop Addins Telecom Telcom Telecommunications)
+[](Esri Tags: Utilities Fiber-Network-Data-Management Desktop Addins Telecom Telcom Telecommunications Utility Utilities)
 [](Esri Language: C-Sharp)
