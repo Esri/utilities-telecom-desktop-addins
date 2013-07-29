@@ -6,11 +6,11 @@
   <Image>Images\Esri Telecom Tools.png</Image>
   <Author>Esri., Inc.</Author>
   <Company>Esri., Inc.</Company>
-  <Date>5/1/2013</Date>
+  <Date>7/29/2013</Date>
   <Targets>
     <Target name="Desktop" version="10.2"/>
   </Targets>
-  <AddIn language="CLR4.0" library="esriTelcoTools.dll" namespace="Esri_Telecom_Tools.Extension">
+  <AddIn language="CLR" library="esriTelcoTools.dll" namespace="Esri_Telecom_Tools.Extension">
     <ArcMap>
       <Commands>
         <Button onDemand="false" id="esriTelcoTools_OpenWorkspaceCommand" class="Esri_Telecom_Tools.Commands.OpenWorkspaceCommand" message="Select a telecom workspace to edit." caption="Open Workspace" tip="Open Workspace" category="Add-In Controls" image="Images\Folder.png" />
