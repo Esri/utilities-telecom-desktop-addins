@@ -6,7 +6,7 @@
   <Image>Images\Esri Telecom Tools.png</Image>
   <Author>Esri., Inc.</Author>
   <Company>Esri., Inc.</Company>
-  <Date>7/29/2013</Date>
+  <Date>11/6/2013</Date>
   <Targets>
     <Target name="Desktop" version="10.2"/>
   </Targets>
@@ -29,6 +29,7 @@
             <Tool refID="esriEditor.StopEditingCommand" />
             <Tool refID="esriEditor.PropertiesCommand" />
             <Tool refID="esriEditor.AttributionCommand" />
+            <Tool refID="esriEditor.CreateFeatureDockWinCommand" />
             <Tool refID="esriTelcoTools_FiberSpliceCommand" />
             <Tool refID="esriTelcoTools_FiberTraceCommand" />
             <Tool refID="esriTelcoTools_FiberDeviceConnectionCommand" />
