@@ -71,12 +71,12 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.flashFeatureMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(173, 50);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(168, 26);
             // 
             // flashFeatureMenuItem
             // 
             this.flashFeatureMenuItem.Name = "flashFeatureMenuItem";
-            this.flashFeatureMenuItem.Size = new System.Drawing.Size(172, 24);
+            this.flashFeatureMenuItem.Size = new System.Drawing.Size(167, 22);
             this.flashFeatureMenuItem.Text = "Flash Location";
             this.flashFeatureMenuItem.Click += new System.EventHandler(this.flashFeatureMenuItem_Click);
             // 
