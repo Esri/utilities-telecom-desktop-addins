@@ -9,6 +9,7 @@
   <Date>11/6/2013</Date>
   <Targets>
     <Target name="Desktop" version="10.2"/>
+    <Target name="Desktop" version="10.1"/>
   </Targets>
   <AddIn language="CLR" library="esriTelcoTools.dll" namespace="Esri_Telecom_Tools.Extension">
     <ArcMap>
