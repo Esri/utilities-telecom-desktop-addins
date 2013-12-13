@@ -442,7 +442,7 @@ namespace Esri_Telecom_Tools.Extension
                 ESRI.ArcGIS.Geodatabase.IFeatureWorkspace workspace = (ESRI.ArcGIS.Geodatabase.IFeatureWorkspace)ArcMap.Editor.EditWorkspace;
                 IFeatureWorkspace fwksp = TelecomWorkspaceHelper.Instance().CurrentWorkspace;
                 bool wkspIsValid = TelecomWorkspaceHelper.Instance().CurrentWorkspaceIsValid;
-                if (workspace == null || !wkspIsValid || !workspace.Equals(fwksp))
+                if (workspace == null || !wkspIsValid)
                 {
                     return;
                 }
