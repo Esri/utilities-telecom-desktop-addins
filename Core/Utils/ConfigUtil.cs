@@ -403,6 +403,14 @@ namespace Esri_Telecom_Tools.Core.Utils
             }
         }
 
+        public static string Fiber_ColorFieldName
+        {
+            get
+            {
+                return GetConfigValue("Fiber_FiberColor", "FiberColor");
+            }
+        }
+
         public static string Fiber_ContainingCableFieldName
         {
             get

@@ -218,7 +218,7 @@ namespace Esri_Telecom_Tools.Helpers
                     }
                 }
             }
-            catch
+            catch(Exception e)
             {
                 if (isOurOperationOpen)
                 {
@@ -229,6 +229,41 @@ namespace Esri_Telecom_Tools.Helpers
             progressDialog.HideDialog();
             return isComplete;
         }
+
+        /*
+        private String fiberOrBufferColorLookup(int number)
+        {
+            switch (number)
+            {
+                case 1:
+                    return "Blue";
+                case 2:
+                    return "Orange";
+                case 3:
+                    return "Green";
+                case 4:
+                    return "Brown";
+                case 5:
+                    return "Slate";
+                case 6:
+                    return "White";
+                case 7:
+                    return "Red";
+                case 8:
+                    return "Black";
+                case 9:
+                    return "Yellow";
+                case 10:
+                    return "Violet";
+                case 11:
+                    return "Rose";
+                case 12:
+                    return "Aqua";
+                default:
+                    return string.Empty;
+            }
+        }
+        */
 
         /// <summary>
         /// Generates a number of buffer tubes and fiber records for a fiber cable, given a configuration. 
@@ -268,6 +303,7 @@ namespace Esri_Telecom_Tools.Helpers
                 // Fields to populate on fiber
                 int fiberIpidIdx = fiberTable.Fields.FindField(ConfigUtil.IpidFieldName);
                 int fiberNumberIdx = fiberTable.Fields.FindField(ConfigUtil.Fiber_NumberFieldName);
+                int fiberColorIdx = fiberTable.Fields.FindField(ConfigUtil.Fiber_ColorFieldName);
                 int fiberToCableIdx = fiberTable.Fields.FindField(cableHasFiber.OriginForeignKey);
                 object fiberToCableValue = feature.get_Value(feature.Fields.FindField(cableHasFiber.OriginPrimaryKey));
                 int fiberToBufferIdx = fiberTable.Fields.FindField(bufferHasFiber.OriginForeignKey);
@@ -285,8 +321,7 @@ namespace Esri_Telecom_Tools.Helpers
 
                     row.set_Value(bufferIpidIdx, bufferId);
                     row.set_Value(fiberCountIdx, configuration.FibersPerTube);
-                    row.set_Value(bufferToCableIdx, bufferToCableValue);
-
+                    row.set_Value(bufferToCableIdx, bufferToCableValue); 
                     row.Store();
 
                     object fiberToBufferValue = row.get_Value(fiberToBufferValueIdx);
@@ -305,6 +340,14 @@ namespace Esri_Telecom_Tools.Helpers
 
                         fiberRow.set_Value(fiberIpidIdx, g.ToString("B").ToUpper());
                         fiberRow.set_Value(fiberNumberIdx, fiberNumber);
+                        
+                        // Dangerous if coded values are altered but while 
+                        // domain type is int Rather than string coded, this 
+                        // is quickest way to add this
+                        // Dont do for fiber groupings of more than 12
+                        if (configuration.FibersPerTube <= 12)
+                            fiberRow.set_Value(fiberColorIdx, fiberIdx);
+    
                         fiberRow.set_Value(fiberToBufferIdx, fiberToBufferValue);
                         fiberRow.set_Value(fiberToCableIdx, fiberToCableValue);
 
