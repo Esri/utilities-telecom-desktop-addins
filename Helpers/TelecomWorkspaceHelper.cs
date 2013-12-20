@@ -80,6 +80,35 @@ namespace Esri_Telecom_Tools.Helpers
             try
             {
                 IWorkspace workspace = fworkspace as IWorkspace;
+                ISQLSyntax sqlSyntax = (ISQLSyntax)workspace;
+
+                // ----------------------------------------------
+                // Need to get the db name & onwer. This is very 
+                // important so we can deal with different types 
+                // of table name qualification when dealing with 
+                // enterprise and file geodatabases.Names are 
+                // only fully qualified with enterprise GDBs.
+                // ----------------------------------------------
+                IWorkspace wksp = fworkspace as IWorkspace;
+                IEnumDatasetName enumDatasetName = wksp.get_DatasetNames(esriDatasetType.esriDTAny);
+                IDatasetName datasetName = enumDatasetName.Next();
+                if (datasetName != null)
+                {
+                    datasetName = enumDatasetName.Next();
+                    // Parse path name out into db, owner, table.
+                    string db = string.Empty;
+                    string owner = string.Empty;
+                    string tbl = string.Empty;
+                    sqlSyntax.ParseTableName(datasetName.Name, out db, out owner, out tbl);
+                    _ownerName = owner;
+                    _dbName = db;
+                }
+                else
+                {
+                    // Not a valid workspace if nothing found in it
+                    _logHelper.addLogEntry(DateTime.Now.ToString(), "ERROR", "Invalid workspace selected.");
+                    return false;
+                }
 
                 // ----------------------------------------------
                 // Workspace is valid and is a feature workspace
@@ -111,6 +140,11 @@ namespace Esri_Telecom_Tools.Helpers
                 // --------------------------------
                 IDatabaseConnectionInfo2 dbInfo = workspace as IDatabaseConnectionInfo2;
 
+                IPropertySet wkPropSet = workspace.ConnectionProperties;
+                object names;
+                object values;
+                wkPropSet.GetAllProperties(out names, out values);
+
                 if (dbInfo != null)
                 {
                     _logHelper.addLogEntry(DateTime.Now.ToString(), "INFO", "Database Connection Info...");
@@ -120,8 +154,8 @@ namespace Esri_Telecom_Tools.Helpers
                     _logHelper.addLogEntry(DateTime.Now.ToString(), "INFO", "Connection Server: ", dbInfo.ConnectionServer);
                     _logHelper.addLogEntry(DateTime.Now.ToString(), "INFO", "GDB Server Class: ", dbInfo.GeodatabaseServerClass.ToString());
 
-                    _dbName = dbInfo.ConnectedDatabase;
-                    _ownerName = dbInfo.ConnectedUser;
+//                    _dbName = dbInfo.ConnectedDatabase;
+//                    _ownerName = dbInfo.ConnectedUser;
                 }                
 
                 // ---------------------------------------

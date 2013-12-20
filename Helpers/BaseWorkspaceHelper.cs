@@ -275,12 +275,6 @@ namespace Esri_Telecom_Tools.Helpers
                 value = _tables[name];
             else
             {
-                ESRI.ArcGIS.Geodatabase.ISQLSyntax sqlSyntax = (ESRI.ArcGIS.Geodatabase.ISQLSyntax)_currentWorkspace;
-
-                string owner = string.Empty;
-                string table = string.Empty;
-                string db = string.Empty;
-
                 // get qualified name from connection properties.
                 ISQLSyntax sqlsyntax = _currentWorkspace as ISQLSyntax;
                 string qualifiedName = sqlsyntax.QualifyTableName(_dbName, _ownerName, name);
