@@ -107,6 +107,8 @@ namespace Esri_Telecom_Tools.Helpers
                     sqlSyntax.ParseTableName(datasetName.Name, out db, out owner, out tbl);
                     _ownerName = owner;
                     _dbName = db;
+                    _logHelper.addLogEntry(DateTime.Now.ToString(), "INFO", "Database owner...", _ownerName);
+                    _logHelper.addLogEntry(DateTime.Now.ToString(), "INFO", "Database name...", _dbName);
                 }
                 else
                 {
@@ -160,9 +162,6 @@ namespace Esri_Telecom_Tools.Helpers
                     _logHelper.addLogEntry(DateTime.Now.ToString(), "INFO", "DB Type: ", dbInfo.ConnectionDBMS.ToString());
                     _logHelper.addLogEntry(DateTime.Now.ToString(), "INFO", "Connection Server: ", dbInfo.ConnectionServer);
                     _logHelper.addLogEntry(DateTime.Now.ToString(), "INFO", "GDB Server Class: ", dbInfo.GeodatabaseServerClass.ToString());
-
-//                    _dbName = dbInfo.ConnectedDatabase;
-//                    _ownerName = dbInfo.ConnectedUser;
                 }                
 
                 // ---------------------------------------
@@ -360,50 +359,5 @@ namespace Esri_Telecom_Tools.Helpers
             }
             return result;
         }
-
-        //#region Workspace validity checks
-
-        //protected bool WorkspaceIsValidForEdits()
-        //{
-        //    bool result = false;
-
-        //    // Add check if this ArcEditor or above.
-        //    m_editor = ArcMap.Editor;
-        //    if (m_editor == null)
-        //    {
-        //        _logHelper.addLogEntry(DateTime.Now.ToString(), "ERROR", "Could not get Editor.");
-        //        return result;
-        //    }
-
-        //    // Open workspace and run checks
-        //    ESRI.ArcGIS.Geodatabase.IFeatureWorkspace workspace = (ESRI.ArcGIS.Geodatabase.IFeatureWorkspace)m_editor.EditWorkspace;
-        //    if (workspace == null) return result;
-
-        //    // Query to get all dynamic value rows
-        //    IQueryFilter dynFilter = new QueryFilter();
-        //    dynFilter.WhereClause = "1=1";
-        //    dynFilter.SubFields = "*";
-
-        //    ITable tab = workspace.OpenTable(m_defaultsTableName);
-        //    if (tab == null)
-        //    {
-        //        _logHelper.addLogEntry(DateTime.Now.ToString(), "ERROR", "No Dynamic Defaults Found.");
-        //        return result;
-        //    }
-        //    else if (tab.RowCount(dynFilter) == 0)
-        //    {
-        //        _logHelper.addLogEntry(DateTime.Now.ToString(), "ERROR", "Dynamic values table contains no entries.");
-        //        return result;  // Do nothing and dont enable tools
-        //    }
-
-        //    _logHelper.addLogEntry(DateTime.Now.ToString(), "INFO", "Telecom workspace is valid.");
-
-        //    return true;
-        //}
-
-        //#endregion
-
-
-
     }
 }
