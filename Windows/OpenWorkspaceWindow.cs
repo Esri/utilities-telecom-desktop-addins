@@ -47,6 +47,8 @@ namespace Esri_Telecom_Tools.Windows
 
             // Add hook to listen for workspace changes
             _wkspHelper.ActiveViewChanged += new EventHandler(_wkspHelper_ActiveViewChanged);
+            _wkspHelper.ItemAdded += new EventHandler(_wkspHelper_ItemAdded);
+            _wkspHelper.ItemDeleted += new EventHandler(_wkspHelper_ItemDeleted);
             _wkspHelper.ValidWorkspaceSelected += new EventHandler(_wkspHelper_WorkspaceSelected);
             _wkspHelper.WorkspaceClosed += new EventHandler(_wkspHelper_WorkspaceClosed);
 
@@ -82,6 +84,16 @@ namespace Esri_Telecom_Tools.Windows
             listView1.ResumeLayout();
             //if (listView1.Items[0] != null) { listView1.Items[0].Selected = true; }
             //listView1.HideSelection = false;
+        }
+
+        void _wkspHelper_ItemAdded(object sender, EventArgs e)
+        {
+            populateWorkspaces();
+        }
+
+        void _wkspHelper_ItemDeleted(object sender, EventArgs e)
+        {
+            populateWorkspaces();
         }
 
         void _wkspHelper_ActiveViewChanged(object sender, EventArgs e)

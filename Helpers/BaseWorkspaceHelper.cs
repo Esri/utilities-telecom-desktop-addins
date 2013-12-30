@@ -24,6 +24,7 @@ using ESRI.ArcGIS.Geodatabase;
 using ESRI.ArcGIS.ArcMapUI;
 using ESRI.ArcGIS.CatalogUI;
 using System.Windows.Forms;
+using ESRI.ArcGIS.Carto;
 
 namespace Esri_Telecom_Tools.Helpers
 {
@@ -70,6 +71,8 @@ namespace Esri_Telecom_Tools.Helpers
 
         // Signal updates to client of this
         public event EventHandler ActiveViewChanged; // Fired when active view changes
+        public event EventHandler ItemAdded; // Fired when data is added
+        public event EventHandler ItemDeleted; // Fired when data is removed
         public event EventHandler ValidWorkspaceSelected; // Fired when a workspace is valid and selected
         public event EventHandler WorkspaceClosed; // Fired when the current workspace is closed
 
@@ -77,7 +80,13 @@ namespace Esri_Telecom_Tools.Helpers
         {
             _logHelper = LogHelper.Instance();
 
-            // Grab a hook into the ActiveView event
+            // Grab a hook into the map
+            if(ArcMap.Document.FocusMap != null)
+            {
+                IActiveViewEvents_Event events = ArcMap.Document.FocusMap as IActiveViewEvents_Event;
+                events.ItemAdded += new IActiveViewEvents_ItemAddedEventHandler(Events_ActiveViewItemAdded);
+                events.ItemDeleted += new IActiveViewEvents_ItemDeletedEventHandler(Events_ActiveViewItemDeleted);
+            }
             ArcMap.Events.ActiveViewChanged += new IDocumentEvents_ActiveViewChangedEventHandler(Events_ActiveViewChanged);
         }
 
@@ -86,6 +95,22 @@ namespace Esri_Telecom_Tools.Helpers
             if (ActiveViewChanged != null)
             {
                 ActiveViewChanged(this, null);
+            }
+        }
+
+        private void Events_ActiveViewItemAdded(object item)
+        {
+            if (ItemAdded != null)
+            {
+                ItemAdded(this, null);
+            }
+        }
+
+        private void Events_ActiveViewItemDeleted(object item)
+        {
+            if (ItemDeleted != null)
+            {
+                ItemDeleted(this, null);
             }
         }
 
