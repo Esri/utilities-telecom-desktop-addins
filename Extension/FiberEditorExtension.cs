@@ -82,8 +82,6 @@ namespace Esri_Telecom_Tools.Extension
         private ITable m_dynDefaults = null;
 
         // Declare configuration variables 
-        private string m_defaultsTableName = "DYNAMICVALUE";
-
         private ESRI.ArcGIS.esriSystem.IPropertySet2 lastValueProperties;
 
         //The schema of the dynamic values table is fixed.  Please copy table provided.  
@@ -466,7 +464,7 @@ namespace Esri_Telecom_Tools.Extension
                 // brought contents into memory.
                 //---------------------------------------
                 if (workspace == null) return;
-                ITable tab = workspace.OpenTable(m_defaultsTableName);
+                ITable tab = workspace.OpenTable(TelecomWorkspaceHelper.Instance().dynamicValuesTableName());
                 if (tab == null)
                 {
                     ArcMap.Application.StatusBar.set_Message(0, "No Dynamic Defaults");

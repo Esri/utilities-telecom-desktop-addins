@@ -60,6 +60,11 @@ namespace Esri_Telecom_Tools.Helpers
         {
         }
 
+        public String dynamicValuesTableName()
+        {
+            return m_defaultsTableName;
+        }
+
         // ------------------------------------
         // Use this static helper to get hold 
         // of a Telecom Workspace Helper.
@@ -109,6 +114,8 @@ namespace Esri_Telecom_Tools.Helpers
                     _logHelper.addLogEntry(DateTime.Now.ToString(), "ERROR", "Invalid workspace selected.");
                     return false;
                 }
+
+                m_defaultsTableName = sqlSyntax.QualifyTableName(_dbName, _ownerName, "DYNAMICVALUE");
 
                 // ----------------------------------------------
                 // Workspace is valid and is a feature workspace
