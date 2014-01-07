@@ -158,8 +158,16 @@ namespace Esri_Telecom_Tools.Windows
 
         private void SelectWorkspaceButton_Click(object sender, EventArgs e)
         {
-            // There should only be one selected.
+            // There should only be one selected. 
+            // If nothing in list bomb out early.
             ListView.SelectedListViewItemCollection items = listView1.SelectedItems;
+            if (items.Count == 0)
+            {
+                MessageBox.Show("No valid workspace found");
+                return;
+            }
+
+            // Check the selected workspace for validity.
             IFeatureWorkspace wksp = items[0].Tag as IFeatureWorkspace;
             bool result = _wkspHelper.OpenWorkspace(wksp);
             if (result == false)
