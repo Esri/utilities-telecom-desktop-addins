@@ -302,16 +302,20 @@ namespace Esri_Telecom_Tools.Helpers
 
             // Do the actual selection
             ESRI.ArcGIS.Carto.IFeatureSelection scFtSelection = _hookHelper.FindFeatureLayer(ConfigUtil.SpliceClosureFtClassName) as ESRI.ArcGIS.Carto.IFeatureSelection;
-            ESRI.ArcGIS.Geodatabase.ISelectionSet scSelectionSet = scFtSelection.SelectionSet;
-            if (null != scSelectionSet
-                && 0 < spliceOidList.Count)
+            if (scFtSelection == null)
             {
-                int[] oidList = spliceOidList.ToArray();
-                scSelectionSet.AddList(spliceOidList.Count, ref oidList[0]);
+                // No selection to be made as layer not in TOC
+                _logHelper.addLogEntry(DateTime.Now.ToString(), "INFO", ConfigUtil.SpliceClosureFtClassName + " not found.", "Layer removed from TOC?");
             }
-            else if(null == scSelectionSet)
+            else
             {
-                _logHelper.addLogEntry(DateTime.Now.ToString(), "ERROR", ConfigUtil.SpliceClosureFtClassName + " not found.", "Layer removed from TOC?");
+                ESRI.ArcGIS.Geodatabase.ISelectionSet scSelectionSet = scFtSelection.SelectionSet;
+                if (null != scSelectionSet
+                    && 0 < spliceOidList.Count)
+                {
+                    int[] oidList = spliceOidList.ToArray();
+                    scSelectionSet.AddList(spliceOidList.Count, ref oidList[0]);
+                }
             }
         }
 
