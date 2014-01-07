@@ -135,7 +135,8 @@ namespace Esri_Telecom_Tools.Helpers
                 ESRI.ArcGIS.Carto.IFeatureLayer ftLayer = _hookHelper.FindFeatureLayer(ftClassName);
                 if (ftLayer == null)
                 {
-                    throw new Exception("Feature class not found: " + ftClassName);
+                    // Layer might not be in the map so just skip if not found.
+                    continue;
                 }
                 ESRI.ArcGIS.Geodatabase.IFeatureClass ftClass = ftLayer.FeatureClass;
                 int displayIdx = ftClass.FindField(ftLayer.DisplayField);
