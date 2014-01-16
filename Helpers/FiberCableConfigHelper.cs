@@ -198,7 +198,7 @@ namespace Esri_Telecom_Tools.Helpers
                 }
                
                 feature.set_Value(bufferCountIdx, configuration.BufferCount);
-                feature.set_Value(strandCountIdx, configuration.TotalFiberCount);
+                feature.set_Value(strandCountIdx, configuration.FibersPerTube);
 
                 isComplete = GenerateUnits(feature, configuration, progressDialog, trackCancel);
 
