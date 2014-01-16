@@ -236,16 +236,19 @@ namespace Esri_Telecom_Tools.Helpers
 
         protected bool InWorkspace(IWorkspace2 wksp2, esriDatasetType type, String name)
         {
+            ISQLSyntax sqlSyntax = (ISQLSyntax)wksp2;
+            String fqname = sqlSyntax.QualifyTableName(_dbName, _ownerName, name);
+
             bool result = true;
             IWorkspace workspace = wksp2 as IWorkspace;
 
-            if (wksp2.get_NameExists(type, name))
+            if (wksp2.get_NameExists(type, fqname))
             {
-                _logHelper.addLogEntry(DateTime.Now.ToString(), "INFO", "Exists check: " + name, "PASS");
+                _logHelper.addLogEntry(DateTime.Now.ToString(), "INFO", "Exists check: " + fqname, "PASS");
             }
             else
             {
-                _logHelper.addLogEntry(DateTime.Now.ToString(), "ERROR", "Exists check: " + name, "FAIL");
+                _logHelper.addLogEntry(DateTime.Now.ToString(), "ERROR", "Exists check: " + fqname, "FAIL");
                 return false;
             }
 
@@ -280,6 +283,12 @@ namespace Esri_Telecom_Tools.Helpers
             return value;
         }
 
+        /// <summary>
+        /// Attempts to open a given table
+        /// </summary>
+        /// <param name="tablename">The unqualified name of the table to be opened. 
+        /// The table name will be qualfied within this function</param>
+        /// <returns>A reference to the ITable</returns>
         public ITable FindTable(String name)
         {
             if (name == null || 1 > name.Length)

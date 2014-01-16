@@ -70,7 +70,7 @@ namespace Esri_Telecom_Tools.Extension
         private LogHelper _logHelper = null;
         private TelecomWorkspaceHelper _wkspHelper = null;
 
-        private string[] m_nonFeatureTables = new string[] { };
+//        private string[] m_nonFeatureTables = new string[] { };
 
         // Monitored non-feature tables
         private System.Collections.Generic.List<IObjectClassEvents_Event> _nonFeatureObjClassEvents = null;
@@ -464,7 +464,7 @@ namespace Esri_Telecom_Tools.Extension
                 // brought contents into memory.
                 //---------------------------------------
                 if (workspace == null) return;
-                ITable tab = workspace.OpenTable(TelecomWorkspaceHelper.Instance().dynamicValuesTableName());
+                ITable tab = TelecomWorkspaceHelper.Instance().FindTable(TelecomWorkspaceHelper.Instance().dynamicValuesTableName());
                 if (tab == null)
                 {
                     ArcMap.Application.StatusBar.set_Message(0, "No Dynamic Defaults");
@@ -481,7 +481,7 @@ namespace Esri_Telecom_Tools.Extension
                 // when needed.
                 //---------------------------------------
                 Events5.OnCurrentTemplateChanged += new IEditEvents5_OnCurrentTemplateChangedEventHandler(Events5_OnCurrentTemplateChanged);
-
+                Events5.OnTemplateModified += new IEditEvents5_OnTemplateModifiedEventHandler(Events5_OnTemplateModified);
 
 
 
@@ -495,7 +495,7 @@ namespace Esri_Telecom_Tools.Extension
                 // All creations are managed by helpers (embedded 
                 // in dialogs).
                 //
-                // All deletions are manager extension Editor.
+                // All deletions are managed by Editor extension.
                 // -------------------------------------------------
                 Events.OnDeleteFeature += new IEditEvents_OnDeleteFeatureEventHandler(Events_OnDeleteFeature);
 
@@ -518,23 +518,25 @@ namespace Esri_Telecom_Tools.Extension
                 // by eliminating event firing.
                 // ----------------------------------------------------------------------
                 //HookHelperExt helper = new HookHelperExt(m_editor.Parent, m_editor);
-                _nonFeatureObjClassEvents = new System.Collections.Generic.List<IObjectClassEvents_Event>();
-                for (int i = 0; i < m_nonFeatureTables.Length; i++)
-                {
-                    if (workspace != null)
-                    {
-                        // ESRI.ArcGIS.Geodatabase.IObjectClassEvents_Event nonFeatureOCE = getTable(m_nonFeatureTables[i]) as ESRI.ArcGIS.Geodatabase.IObjectClassEvents_Event;
-                        ESRI.ArcGIS.Geodatabase.IObjectClassEvents_Event nonFeatureOCE = workspace.OpenTable(m_nonFeatureTables[i]) as ESRI.ArcGIS.Geodatabase.IObjectClassEvents_Event;
-                        if (null != nonFeatureOCE)
-                        {
-                            _nonFeatureObjClassEvents.Add(nonFeatureOCE);
-                            nonFeatureOCE.OnChange += new IObjectClassEvents_OnChangeEventHandler(
-                                m_editEvents_OnChangeFeature);
-                            nonFeatureOCE.OnCreate += new IObjectClassEvents_OnCreateEventHandler(
-                                m_editEvents_OnCreateFeature);
-                        }
-                    }
-                }
+//                _nonFeatureObjClassEvents = new System.Collections.Generic.List<IObjectClassEvents_Event>();
+//                for (int i = 0; i < m_nonFeatureTables.Length; i++)
+//                {
+//                    if (workspace != null)
+//                    {
+////                        ITable tab = TelecomWorkspaceHelper.Instance().FindTable(TelecomWorkspaceHelper.Instance().dynamicValuesTableName());
+
+//                        ESRI.ArcGIS.Geodatabase.IObjectClassEvents_Event nonFeatureOCE = TelecomWorkspaceHelper.Instance().FindTable(m_nonFeatureTables[i]) as ESRI.ArcGIS.Geodatabase.IObjectClassEvents_Event;
+////                        ESRI.ArcGIS.Geodatabase.IObjectClassEvents_Event nonFeatureOCE = workspace.OpenTable(m_nonFeatureTables[i]) as ESRI.ArcGIS.Geodatabase.IObjectClassEvents_Event;
+//                        if (null != nonFeatureOCE)
+//                        {
+//                            _nonFeatureObjClassEvents.Add(nonFeatureOCE);
+//                            nonFeatureOCE.OnChange += new IObjectClassEvents_OnChangeEventHandler(
+//                                m_editEvents_OnChangeFeature);
+//                            nonFeatureOCE.OnCreate += new IObjectClassEvents_OnCreateEventHandler(
+//                                m_editEvents_OnCreateFeature);
+//                        }
+//                    }
+//                }
            
             }
             catch (Exception ex)
@@ -788,6 +790,12 @@ namespace Esri_Telecom_Tools.Extension
             {
                 _logHelper.addLogEntry(DateTime.Now.ToString(), "ERROR", "Error changing edit template.", ex.ToString());
             }
+        }
+
+        void Events5_OnTemplateModified(IEditTemplate editTemplate)
+        {
+            IEditor3 editor = ArcMap.Editor as IEditor3;
+            editor.CurrentTemplate = editTemplate;
         }
 
         #endregion

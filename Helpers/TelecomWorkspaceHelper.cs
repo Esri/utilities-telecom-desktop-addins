@@ -117,8 +117,6 @@ namespace Esri_Telecom_Tools.Helpers
                     return false;
                 }
 
-                m_defaultsTableName = sqlSyntax.QualifyTableName(_dbName, _ownerName, "DYNAMICVALUE");
-
                 // ----------------------------------------------
                 // Workspace is valid and is a feature workspace
                 // ----------------------------------------------
