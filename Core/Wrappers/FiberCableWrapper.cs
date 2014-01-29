@@ -97,9 +97,9 @@ namespace Esri_Telecom_Tools.Core.Wrappers
         {
             get
             {
-                if (DBNull.Value != _feature.get_Value(_fibersIdx))
+                if (DBNull.Value != _feature.get_Value(_fibersIdx) && DBNull.Value != _feature.get_Value(_bufferTubesIdx))
                 {
-                    return (int)_feature.get_Value(_fibersIdx);
+                    return (int)_feature.get_Value(_fibersIdx) * (int)_feature.get_Value(_bufferTubesIdx);
                 }
                 else
                 {

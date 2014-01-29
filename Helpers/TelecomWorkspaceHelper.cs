@@ -27,6 +27,7 @@ using ESRI.ArcGIS.CatalogUI;
 using System.Windows.Forms;
 using Esri_Telecom_Tools.Core.Utils;
 using ESRI.ArcGIS.esriSystem;
+using System.Runtime.InteropServices;
 
 namespace Esri_Telecom_Tools.Helpers
 {
@@ -224,6 +225,78 @@ namespace Esri_Telecom_Tools.Helpers
                     _logHelper.addLogEntry(DateTime.Now.ToString(), "INFO", "DB Telecom Schema Version OK?", "True");
                 }
 
+                // --------------------------------------------
+                // Check the integrity of the cable feature class
+                // --------------------------------------------
+                ArcMap.Editor.StartEditing(fworkspace as IWorkspace);
+                ICursor pCursor = (ICursor)cableFc.Search(null, false);
+                IRelationshipClass fiberCableToFiberRc = fworkspace.OpenRelationshipClass(ConfigUtil.FiberCableToFiberRelClassName);
+                IRelationshipClass fiberCableToBufferRc = fworkspace.OpenRelationshipClass(ConfigUtil.FiberCableToBufferRelClassName);
+                IRow pRow;
+                bool badBuffers = false;
+                bool badFibers = false;
+                bool missingBuffers = false;
+                bool missingStrands = false;
+                bool conversionRequired = false;
+                while ((pRow = pCursor.NextRow()) != null)
+                {
+                    int bufferCount = (int)pRow.get_Value(cableFc.FindField(ConfigUtil.NumberOfBuffersFieldName));
+                    int fiberCount = (int)pRow.get_Value(cableFc.FindField(ConfigUtil.NumberOfFibersFieldName));
+                    int rcBufferCount = fiberCableToBufferRc.GetObjectsRelatedToObject(pRow as IFeature).Count;
+                    int rcFiberCount = fiberCableToFiberRc.GetObjectsRelatedToObject(pRow as IFeature).Count;
+
+                    // Empty values found (dont attempt to fix)
+                    if(bufferCount == 0)
+                    {
+                        badBuffers = true;
+                        _logHelper.addLogEntry(DateTime.Now.ToString(), "INTEGRITY", "Found Fiber Cable with no buffers", "Cable ID: " + pRow.get_Value(cableFc.FindField(ConfigUtil.IpidFieldName)).ToString());
+                        continue;
+                    }
+                    if(fiberCount == 0)
+                    {
+                        badFibers = true;
+                        _logHelper.addLogEntry(DateTime.Now.ToString(), "INTEGRITY", "Found Fiber Cable with no strands", "Cable ID: " + pRow.get_Value(cableFc.FindField(ConfigUtil.IpidFieldName)).ToString());
+                        continue;
+                    }
+
+                    // Buffer field count & relationships to buffers not matching
+                    if(bufferCount != rcBufferCount)
+                    {
+                        missingBuffers = true;
+                        String output = "Expected: " + bufferCount + " Found: " + fiberCableToBufferRc.GetObjectsRelatedToObject(pRow as IFeature).Count + " Cable ID: " + pRow.get_Value(cableFc.FindField(ConfigUtil.IpidFieldName)).ToString();
+                        _logHelper.addLogEntry(DateTime.Now.ToString(), "INTEGRITY", "Found Fiber Cable with missing buffers", output);
+                        continue;
+                    }
+
+                    // other checks
+                    if(rcFiberCount % rcBufferCount != 0)
+                    {
+                        missingStrands = true;
+                        _logHelper.addLogEntry(DateTime.Now.ToString(), "INTEGRITY", "Missing strand entries", "Cable ID: " + pRow.get_Value(cableFc.FindField(ConfigUtil.IpidFieldName)).ToString());
+                        continue;
+                    }
+
+                    // we must be dealing with a total count (convert to per buffer tube value)
+                    if (bufferCount > 1 && fiberCount == rcFiberCount)
+                    {
+                        conversionRequired = true;
+                        _logHelper.addLogEntry(DateTime.Now.ToString(), "INTEGRITY", "Strand Total to Strands Per Buffer conversion", "Cable ID: " + pRow.get_Value(cableFc.FindField(ConfigUtil.IpidFieldName)).ToString());
+                        pRow.set_Value(pRow.Fields.FindField(ConfigUtil.NumberOfFibersFieldName), rcFiberCount / rcBufferCount);
+                        pRow.Store();
+                    }
+                }
+                ArcMap.Editor.StopEditing(true);
+
+                if(badBuffers)
+                    MessageBox.Show("Database integrity issues were detected. Found Fiber Cable with no buffers. Please see the log file for more details");
+                if (badFibers)
+                    MessageBox.Show("Database integrity issues were detected. Found Fiber Cable with no strands. Please see the log file for more details");
+                if(missingBuffers)
+                    MessageBox.Show("Database integrity issues were detected. Found Fiber Cable with missing buffers. Please see the log file for more details");
+                if(missingStrands)
+                    MessageBox.Show("Database integrity issues were detected. Missing strand entries. Please see the log file for more details");
+                if(conversionRequired)
+                    MessageBox.Show("Database integrity issues were detected. Strand Total to Strands Per Buffer conversion was done.");
             }
             catch (Exception e)
             {
