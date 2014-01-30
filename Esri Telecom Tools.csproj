@@ -53,10 +53,13 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <RegisterForComInterop>false</RegisterForComInterop>
+    <RegisterForComInterop>true</RegisterForComInterop>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ESRI.ArcGIS.ADF.Connection.Local, Version=10.1.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.ADF.Local, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="ESRI.ArcGIS.ArcMap, Version=10.1.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
@@ -124,6 +127,7 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\IntegrityCheckCommand.cs" />
     <Compile Include="Commands\CloseWorkspaceCommand.cs" />
     <Compile Include="Commands\OpenWorkspaceCommand.cs" />
     <Compile Include="Commands\TelecomToolsLogCommand.cs" />
@@ -311,6 +315,8 @@
     <AddInContent Include="Images\close-application.png" />
     <AddInContent Include="Images\CloseWorkspaceCommand.png" />
     <AddInContent Include="Images\Folder.png" />
+    <AddInContent Include="Images\IntegrityCheckCommand.png" />
+    <AddInContent Include="Images\IntegrityCheckCommand_1.png" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="MSXML2">
@@ -332,11 +338,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <PlatformTarget>x86</PlatformTarget>
     <OutputPath>bin\x86\Debug\</OutputPath>
+    <RegisterForComInterop>true</RegisterForComInterop>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <PlatformTarget>x86</PlatformTarget>
     <OutputPath>bin\x86\Release\</OutputPath>
     <LangVersion>default</LangVersion>
+    <RegisterForComInterop>true</RegisterForComInterop>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />

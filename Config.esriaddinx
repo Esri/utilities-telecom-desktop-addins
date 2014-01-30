@@ -6,10 +6,10 @@
   <Image>Images\Esri Telecom Tools.png</Image>
   <Author>Esri., Inc.</Author>
   <Company>Esri., Inc.</Company>
-  <Date>11/6/2013</Date>
+  <Date>1/29/2014</Date>
   <Targets>
-    <Target name="Desktop" version="10.2"/>
-    <Target name="Desktop" version="10.1"/>
+    <Target name="Desktop" version="10.2" />
+    <Target name="Desktop" version="10.1" />
   </Targets>
   <AddIn language="CLR" library="esriTelcoTools.dll" namespace="Esri_Telecom_Tools.Extension">
     <ArcMap>
@@ -20,6 +20,7 @@
         <Button onDemand="false" id="esriTelcoTools_FiberDeviceConnectionCommand" class="Esri_Telecom_Tools.Commands.FiberDeviceConnectionCommand" message="View or edit the splicing information between selected devices and cables." caption="View Or Edit Fiber Device Connections" tip="View Or Edit Fiber Device Connections" category="Add-In Controls" image="Images\FiberDeviceConnectionCommand.png" />
         <Button onDemand="false" id="esriTelcoTools_TelecomToolsLogCommand" class="Esri_Telecom_Tools.Commands.TelecomToolsLogCommand" message="Telecom Tools Log" caption="Telecom Tools Log" tip="Telecom Tools Log" category="Add-In Controls" image="Images\LogCommand.png" />
         <Button onDemand="false" id="esriTelcoTools_CloseWorkspaceCommand" class="Esri_Telecom_Tools.Commands.CloseWorkspaceCommand" message="Closes the current telecom workspace and stops any editing session." caption="Close Workspace" tip="Close workspace" category="Add-In Controls" image="Images\CloseWorkspaceCommand.png" />
+        <Button onDemand="false" id="esriTelcoTools_IntegrityCheckCommand" class="Esri_Telecom_Tools.Commands.IntegrityCheckCommand" message="Run DB Integrity Check" caption="DB Integrity Check" tip="Run DB Integrity Check" category="Add-In Controls" image="Images\IntegrityCheckCommand_1.png" />
       </Commands>
       <Toolbars>
         <Toolbar id="esriTelcoTools_Fiber_Toolbar" caption="Esri Fiber Editing" showInitially="true">
@@ -35,6 +36,7 @@
             <Tool refID="esriTelcoTools_FiberTraceCommand" />
             <Tool refID="esriTelcoTools_FiberDeviceConnectionCommand" />
             <Tool refID="esriTelcoTools_TelecomToolsLogCommand" />
+            <Tool refID="esriTelcoTools_IntegrityCheckCommand" />
           </Items>
         </Toolbar>
       </Toolbars>
