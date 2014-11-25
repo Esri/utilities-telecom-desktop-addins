@@ -68,5 +68,5 @@ limitations under the License.
 A copy of the license is available in the repository's
 [license.txt](https://raw.github.com/Esri/local-government-desktop-addins/master/license.txt) file.
 
-[](Esri Tags: Utilities Fiber-Network-Data-Management Desktop Addins Telecom Telcom Telecommunications Utility Utilities)
+[](Esri Tags: Utilities Fiber-Network-Data-Management Desktop Addins Telecom Telcom Telecommunications Utility Utilities ArcGISSolutions)
 [](Esri Language: C-Sharp)
