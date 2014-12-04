@@ -99,3 +99,5 @@ to indemnify, defend, and hold each Contributor harmless for any liability incur
 accepting any such warranty or additional liability.
 
 END OF TERMS AND CONDITIONS
+
+ Copyright 2014 Esri Inc.
