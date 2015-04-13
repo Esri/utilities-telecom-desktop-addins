@@ -15,12 +15,12 @@ The ArcGIS for Utilities Telecom Desktop Add-ins helps you effectively manage ba
 
 ### Esri Sample Data
 
-Esri's sample data can be [downloaded] (http://www.arcgis.com/home/item.html?id=1835f8dbd35247369d4281d8914c48ca) with this repository to extend the destkop add-ins.
+Esri's sample data can be [downloaded] (http://www.esri.com/apps/products/download/index.cfm?fuseaction=download.main&downloadid=1087) with this repository to extend the destkop add-ins.
 
 ### Your Services
 
-[Detailed help](http://resources.arcgis.com/en/help/localgovernment/10.1/index.html#/ArcGIS_for_Local_Government_maps_and_apps/028s0000006t000000/)
-on the ArcGIS Resource Center can guide you in the setup and configuration of the desktop add-ins with your data.
+[Detailed help](http://solutions.arcgis.com/telecommunications/help/fiber-editing/)
+on the ArcGIS for Telecommunication solution site can guide you in the setup and configuration of the desktop add-ins with your data.
 
 ### General Help
 [New to Github? Get started here.](http://htmlpreview.github.com/?https://github.com/Esri/esri.github.com/blob/master/help/esri-getting-to-know-github.html)
@@ -33,11 +33,11 @@ on the ArcGIS Resource Center can guide you in the setup and configuration of th
 
 ## Resources
 
-Learn more about Esri's [ArcGIS for Telecommunication]( http://resources.arcgis.com/en/communities/telecommunications/).
+Learn more about Esri's [ArcGIS for Telecommunication](http://solutions.arcgis.com/telecommunications/).
 
 Show me a list of other [Utilities GitHub repositories](http://esri.github.io/#Utilities).
 
-Additional [information and sample data]( http://www.arcgis.com/home/item.html?id=1835f8dbd35247369d4281d8914c48ca)
+Additional [information and sample data](http://www.esri.com/apps/products/download/index.cfm?fuseaction=download.main&downloadid=1087)
 are available for the destkop add-ins.
 
 
@@ -51,7 +51,7 @@ Anyone and everyone is welcome to contribute.
 
 ## Licensing
 
-Copyright 2012 Esri
+Copyright 2015 Esri
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
