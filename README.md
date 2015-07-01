@@ -4,6 +4,8 @@ The ArcGIS for Utilities Telecom Desktop Add-ins helps you effectively manage ba
 
 ![Image of Desktop Add-ins](https://raw.github.com/Esri/utilities-telecom-desktop-addins/master/utilities-telecom-desktop-addins.png "Desktop Add-ins")
 
+##Mature Support
+As of July 1, 2015, the Fiber Data Management Solution has been moved to [mature support](http://links.esri.com/Support/ProductLifeCycle). The source code for this add-in can still be accesssed through this GitHub repository.
 
 ## Features
 
@@ -12,15 +14,6 @@ The ArcGIS for Utilities Telecom Desktop Add-ins helps you effectively manage ba
 * Tracing the Fiber Network
 
 ## Instructions
-
-### Esri Sample Data
-
-Esri's sample data can be [downloaded] (http://www.esri.com/apps/products/download/index.cfm?fuseaction=download.main&downloadid=1087) with this repository to extend the destkop add-ins.
-
-### Your Services
-
-[Detailed help](http://solutions.arcgis.com/telecommunications/help/fiber-editing/)
-on the ArcGIS for Telecommunication solution site can guide you in the setup and configuration of the desktop add-ins with your data.
 
 ### General Help
 [New to Github? Get started here.](http://htmlpreview.github.com/?https://github.com/Esri/esri.github.com/blob/master/help/esri-getting-to-know-github.html)
@@ -36,10 +29,6 @@ on the ArcGIS for Telecommunication solution site can guide you in the setup and
 Learn more about Esri's [ArcGIS for Telecommunication](http://solutions.arcgis.com/telecommunications/).
 
 Show me a list of other [Utilities GitHub repositories](http://esri.github.io/#Utilities).
-
-Additional [information and sample data](http://www.esri.com/apps/products/download/index.cfm?fuseaction=download.main&downloadid=1087)
-are available for the destkop add-ins.
-
 
 ## Issues
 
