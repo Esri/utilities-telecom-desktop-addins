@@ -3,9 +3,9 @@
 The ArcGIS for Utilities Telecom Desktop Add-ins helps you effectively manage basic connectivity information about your fiber network infrastructure.
 
 ![Image of Desktop Add-ins](https://raw.github.com/Esri/utilities-telecom-desktop-addins/master/utilities-telecom-desktop-addins.png "Desktop Add-ins")
-##Retired
+## Retired
 As of September 1, 2016, the Fiber Data Management Solution has been moved to the [Retired Lifecycle Status](http://links.esri.com/Support/ProductLifeCycle). The source code for this add-in can still be accessed through this GitHub repository.
-##Mature Support
+## Mature Support
 As of July 1, 2015, the Fiber Data Management Solution has been moved to the [Mature Lifecycle Status](http://links.esri.com/Support/ProductLifeCycle). The source code for this add-in can still be accesssed through this GitHub repository.
 
 ## Features
